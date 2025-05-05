@@ -4,21 +4,26 @@
 ![image](https://github.com/BankkRoll/solana-starter/assets/106103625/c8183b62-f16c-43d7-bbca-d48c77c9228a)
 
 ## Description
+
 This Solana Starter is leveraging Next.js for server-side rendering, TypeScript for Tailwind CSS, and shadcn/ui components for the UI, & integrates `solana/wallet-adapter-react` and `solana/web3.js` for seamless blockchain transactions and data fetching, focusing primarily on fetching holder information from a given creator address.
 
 ## Features
+
 - **Simple Snapshot Tool:** Fetch holders from a creator address on the Solana blockchain.
 - **Responsive UI:** Utilizes Tailwind CSS and shadcn/ui components for a modern, responsive design.
 - **Solana Blockchain Integration:** Uses `solana/wallet-adapter-react` and `solana/web3.js` for interacting with the Solana blockchain.
 
 ## Installation
+
 1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/BankkRoll/solana-starter.git
    cd solana-starter
    ```
 
 2. **Install dependencies:**
+
    ```bash
    npm install
    ```
@@ -29,12 +34,15 @@ This Solana Starter is leveraging Next.js for server-side rendering, TypeScript 
    - Replace `<your_api_key_here>` with your Helious API key.
 
 ## Usage
+
 1. **Start the development server:**
+
    ```bash
    npm run dev
    ```
 
 2. **Navigate to the app:**
+
    - Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
 3. **Interacting with the Solana Blockchain:**
