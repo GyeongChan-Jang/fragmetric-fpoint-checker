@@ -1,50 +1,74 @@
-# Solana Starter
+# Fragmetric F Point Checker
 
-![image](https://github.com/BankkRoll/solana-starter/assets/106103625/af316bf3-344e-492d-8f2a-ba6e36cf4730)
-![image](https://github.com/BankkRoll/solana-starter/assets/106103625/c8183b62-f16c-43d7-bbca-d48c77c9228a)
+🌐 Available in: [한국어 (Korean)](README.ko.md)
 
-## Description
+A web application that displays Fragmetric F Point information in a dashboard format.
 
-This Solana Starter is leveraging Next.js for server-side rendering, TypeScript for Tailwind CSS, and shadcn/ui components for the UI, & integrates `solana/wallet-adapter-react` and `solana/web3.js` for seamless blockchain transactions and data fetching, focusing primarily on fetching holder information from a given creator address.
+## Key Features
 
-## Features
+- **Dashboard Overview**: View total F Points, user count, and point source distribution
+- **Personal Statistics**: Check individual F Points, boost information, daily activity charts, and GitHub-style contribution graphs
+- **Leaderboard**: View top F Point holders rankings
+- **Wallet Connection**: Support for Solana wallet connections
 
-- **Simple Snapshot Tool:** Fetch holders from a creator address on the Solana blockchain.
-- **Responsive UI:** Utilizes Tailwind CSS and shadcn/ui components for a modern, responsive design.
-- **Solana Blockchain Integration:** Uses `solana/wallet-adapter-react` and `solana/web3.js` for interacting with the Solana blockchain.
+## Tech Stack
+
+- **Framework**: Next.js
+- **Styling**: Tailwind CSS, shadcn/ui
+- **Charts**: Recharts (shadcn/ui chart components)
+- **State Management**: React Query, Zustand
+- **Wallet Integration**: Solana Wallet Adapter
 
 ## Installation
 
-1. **Clone the repository:**
+```bash
+# Clone repository
+git clone https://github.com/yourusername/fragmetric-fpoint-checker.git
+cd fragmetric-fpoint-checker
 
-   ```bash
-   git clone https://github.com/BankkRoll/solana-starter.git
-   cd solana-starter
-   ```
+# Install dependencies
+npm install
 
-2. **Install dependencies:**
+# Run development server
+npm run dev
+```
 
-   ```bash
-   npm install
-   ```
+## Development Commands
 
-3. **Set up `.env` file:**
-   - Rename `.env.example` to `.env`.
-   - Obtain an API key from [Helious Dashboard](https://dev.helius.xyz/dashboard/app).
-   - Replace `<your_api_key_here>` with your Helious API key.
+```bash
+# Run development server
+npm run dev
 
-## Usage
+# Build for production
+npm run build
 
-1. **Start the development server:**
+# Run production server
+npm run start
 
-   ```bash
-   npm run dev
-   ```
+# Run linter
+npm run lint
 
-2. **Navigate to the app:**
+# Format code
+npm run format
 
-   - Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
+# Check formatting issues
+npm run format:check
+```
 
-3. **Interacting with the Solana Blockchain:**
-   - Use the UI to connect to a Solana wallet.
-   - Perform transactions or query blockchain data as per the application's capabilities, especially for fetching holder information from a creator address.
+## Project Structure
+
+```
+src/
+├── components/        # UI and layout components
+├── lib/               # Utilities, API clients, stores
+├── pages/             # Routes and page components
+└── styles/            # Global styles (Tailwind configuration)
+```
+
+## Theme and Colors
+
+- **Primary**: hsl(173, 90%, 44%)
+- **Secondary**: hsl(272, 79%, 76%)
+- **Accent**: hsl(191, 94%, 45%)
+
+The application supports dark mode, and the color theme is managed in `src/styles/globals.css`.
