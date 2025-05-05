@@ -68,7 +68,12 @@ export default function Home() {
 
   const restaking = RestakingProgram.devnet()
 
-  restaking.fragSOL.resolve().then(console.log)
+  restaking.fragSOL.user('91zBeWL8kHBaMtaVrHwWsck1UacDKvje82QQ3HE2k8mJ')
+
+  restaking.fragSOL
+    .user('91zBeWL8kHBaMtaVrHwWsck1UacDKvje82QQ3HE2k8mJ')
+    .reward.resolveAccountTree()
+    .then(console.log)
 
   return (
     <Layout>

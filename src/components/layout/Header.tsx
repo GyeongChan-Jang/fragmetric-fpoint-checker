@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
-import { ModeToggle } from '@/components/ui/mode-toggle'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
 
@@ -42,7 +41,6 @@ export function Header() {
           </nav>
         </div>
         <div className='flex items-center gap-2'>
-          <ModeToggle />
           <WalletMultiButton />
         </div>
       </div>

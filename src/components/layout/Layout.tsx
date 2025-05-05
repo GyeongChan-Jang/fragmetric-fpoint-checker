@@ -2,6 +2,7 @@ import { Montserrat } from 'next/font/google'
 import { ReactNode } from 'react'
 import { Header } from './Header'
 import { useWalletListener } from '@/lib/hooks/useWalletListener'
+import { FloatingModeToggle } from '@/components/ui/mode-toggle'
 
 const montserrat = Montserrat({
   subsets: ['latin']
@@ -44,6 +45,7 @@ export function Layout({ children }: LayoutProps) {
           </div>
         </div>
       </footer>
+      <FloatingModeToggle />
     </div>
   )
 }
