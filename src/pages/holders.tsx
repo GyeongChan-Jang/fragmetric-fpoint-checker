@@ -1,11 +1,12 @@
 import { Card, CardContent } from '@/components/ui/card'
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useState, useEffect } from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { saveAs } from 'file-saver'
 import { toast } from 'sonner'
+import { useRouter } from 'next/router'
 
 interface Holder {
   address: string
@@ -16,6 +17,7 @@ const Holders = () => {
   const [creatorAddress, setCreatorAddress] = useState('')
   const [holders, setHolders] = useState<Holder[]>([])
   const [activeTab, setActiveTab] = useState('csv')
+  const router = useRouter()
 
   const saveToFile = (data: BlobPart, filename: string, type: string) => {
     const blob = new Blob([data], { type })
@@ -105,70 +107,11 @@ const Holders = () => {
     return JSON.stringify(holders, null, 2)
   }, [holders])
 
-  return (
-    <main className='flex min-h-screen items-center justify-center'>
-      <div className='mx-auto flex flex-col items-center justify-center gap-4 px-4 max-sm:w-full'>
-        <div className='mx-auto flex flex-row items-center justify-center gap-4'>
-          <Input
-            className='min-w-full rounded-md border p-2 md:min-w-96'
-            type='text'
-            placeholder='Enter Creator Address'
-            value={creatorAddress}
-            onChange={(e) => setCreatorAddress(e.target.value)}
-          />
-          <Button onClick={handleSearch}>Search</Button>
-        </div>
-        <div className='w-full'>
-          <Tabs defaultValue='csv' className='w-full'>
-            <TabsList className='flex justify-center'>
-              <TabsTrigger onClick={() => setActiveTab('csv')} value='csv' className='mx-2'>
-                CSV
-              </TabsTrigger>
-              <TabsTrigger onClick={() => setActiveTab('json')} value='json' className='mx-2'>
-                JSON
-              </TabsTrigger>
-            </TabsList>
+  useEffect(() => {
+    router.push('/my-points')
+  }, [router])
 
-            <TabsContent value='csv'>
-              <Card>
-                <CardContent className='h-96 overflow-y-auto rounded-lg p-4'>
-                  {!csvData && (
-                    <div className='m-auto flex items-center justify-center'>
-                      <div className='flex flex-col items-center'>
-                        <div className='h-32 w-32 animate-spin rounded-full border-b-2 border-gray-900'></div>
-                        <p className='mt-3 text-lg text-gray-600'>Enter a search query</p>
-                      </div>
-                    </div>
-                  )}
-                  <pre className='whitespace-pre-wrap text-left font-mono'>{csvData}</pre>
-                </CardContent>
-              </Card>
-            </TabsContent>
-            <TabsContent value='json'>
-              <Card>
-                <CardContent className='h-96 overflow-y-auto rounded-lg p-4'>
-                  {!csvData && (
-                    <div className='m-auto flex items-center justify-center'>
-                      <div className='flex flex-col items-center'>
-                        <div className='h-32 w-32 animate-spin rounded-full border-b-2 border-gray-900'></div>
-                        <p className='mt-3 text-lg text-gray-600'>Enter a search query</p>
-                      </div>
-                    </div>
-                  )}
-                  <pre className='whitespace-pre-wrap text-left font-mono'>{jsonData}</pre>
-                </CardContent>
-              </Card>
-            </TabsContent>
-          </Tabs>
-        </div>
-        <div className='mx-auto flex flex-row items-center justify-center gap-4'>
-          <Button disabled={!csvData} onClick={handleDownload}>
-            Download {activeTab.toUpperCase()}
-          </Button>
-        </div>
-      </div>
-    </main>
-  )
+  return null
 }
 
 export default Holders
